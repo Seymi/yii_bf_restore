@@ -9,7 +9,7 @@
     if (auto_refresh) window.onload = setupRefresh;
     
     function setupRefresh() {
-      setTimeout("refreshPage();", 3000); // milliseconds
+      setTimeout("refreshPage();", 1000); // milliseconds
     }
     function refreshPage() {
        window.location = location.href;
@@ -39,7 +39,7 @@ $this->breadcrumbs = array(
 //  print '<br/>';
 
   $show_header = true;
-  $show_header = false;
+  //$show_header = false;
   
   if ($show_header)
   {    
@@ -59,21 +59,26 @@ $this->breadcrumbs = array(
 
   print date('Y-m-d H:i:s');   print '<br/>';
   
-  print_r ($marketOdds->Result->marketPrices->currencyCode);
-  print ' >> ';
-  print_r ($marketOdds->Result->marketPrices->delay);
-  print ' >> ';
+  if (array_key_exists('Result', $marketOdds))
+  {
+    //if (array_key_exists('marketPrices', $marketOdds->Result)  && is_array($marketOdds->Result) )
+    if (array_key_exists('marketPrices', $marketOdds->Result))
+    {
+      print_r ($marketOdds->Result->marketPrices->currencyCode);
+      print ' >> ';
+      print_r ($marketOdds->Result->marketPrices->delay);
+      print ' >> ';
 
-  print_r ($marketOdds->Result->marketPrices->marketStatus);
-  print ' >> ';
-  
-  print_r ($marketOdds->Result->marketPrices->numberOfWinners);
-  
-  print '<br/>';
+      print_r ($marketOdds->Result->marketPrices->marketStatus);
+      print ' >> ';
 
-  
- //print_r($marketOdds->Result->marketPrices->runnerPrices);
-  print '<br/>';
+      print_r ($marketOdds->Result->marketPrices->numberOfWinners);
+      print '<br/>';
+
+      //print_r($marketOdds->Result->marketPrices->runnerPrices);
+      print '<br/>';
+    }    
+  }    
   
   ?>
 
@@ -169,6 +174,10 @@ $this->breadcrumbs = array(
 
       print '<td class="odd_lay">';    
       //print_r ($runnerPrice->bestPricesToLay);
+
+    if (array_key_exists('bestPricesToLay', $runnerPrice ))
+    {        
+      
       foreach ($runnerPrice->bestPricesToLay as $price)
       {
           print '<table>';
@@ -190,6 +199,8 @@ $this->breadcrumbs = array(
           //print_r( $price);
           //print $price->amountAvailable;
       }    
+    }
+
 
       print '</td>';
       

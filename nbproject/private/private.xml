@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Sites/yii_bf_restore/protected/views/betfair/marketViewer.php</file>
             <file>file:/C:/Sites/yii_bf_restore/protected/views/betfair/_oddViewer.php</file>
+            <file>file:/C:/Sites/yii_bf_restore/protected/models/Betfair.php</file>
             <file>file:/C:/Sites/yii_bf_restore/protected/views/betfair/oddViewer.php</file>
             <file>file:/C:/Sites/yii_bf_restore/protected/controllers/BetfairController.php</file>
         </group>
