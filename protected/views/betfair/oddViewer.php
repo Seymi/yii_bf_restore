@@ -39,7 +39,7 @@ $this->breadcrumbs = array(
 //  print '<br/>';
 
   $show_header = true;
-  //$show_header = false;
+  $show_header = false;
   
   if ($show_header)
   {    
